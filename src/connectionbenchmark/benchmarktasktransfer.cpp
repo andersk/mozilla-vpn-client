@@ -53,10 +53,6 @@ void BenchmarkTaskTransfer::handleState(BenchmarkTask::State state) {
     m_dnsLookup.lookup();
 #endif
 
-#if QT_VERSION >= 0x060500
-#  error Check if QT added support for QDnsLookup::lookup() on Android
-#endif
-
     m_elapsedTimer.start();
   } else if (state == BenchmarkTask::StateInactive) {
     for (NetworkRequest* request : m_requests) {
